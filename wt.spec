@@ -37,7 +37,7 @@ Summary:	Development files for Wt, the C++ Web toolkit
 Group:		Development/C and C++
 EOF
 for i in $LIBPACKAGES; do
-	echo "Requires: $i = %{EVRD}" >>%{specpartsdir}/%{devname}.specpart
+	echo "Requires: %%{mklibname $i} = %{EVRD}" >>%{specpartsdir}/%{devname}.specpart
 done
 cat >>%{specpartsdir}/%{devname}.specpart <<"EOF"
 %%%%description -n %{devname}
