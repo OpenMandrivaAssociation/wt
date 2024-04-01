@@ -2,7 +2,7 @@
 
 Name: wt
 Version: 4.10.3
-Release: 3
+Release: 4
 Source0: https://github.com/emweb/wt/archive/%{version}/%{name}-%{version}.tar.gz
 Summary: C++ Web toolkit
 URL: https://webtoolkit.eu/
