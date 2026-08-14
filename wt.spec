@@ -29,25 +29,21 @@ functionality.
 
 %install
 %ninja_install -C build
-%libpackages -D -d
+%libpackages
 
-cat >%{specpartsdir}/%{devname}.specpart <<"EOF"
-%%%%package -n %{devname}
+%package -n %{devname}
 Summary:	Development files for Wt, the C++ Web toolkit
 Group:		Development/C and C++
-EOF
-for i in $LIBPACKAGES; do
-	echo "Requires: %%{mklibname $i} = %{EVRD}" >>%{specpartsdir}/%{devname}.specpart
-done
-cat >>%{specpartsdir}/%{devname}.specpart <<"EOF"
-%%%%description -n %{devname}
+Requires:	%{mklibname wt} = %{EVRD}
+
+%description -n %{devname}
 Development files for Wt, the C++ Web toolkit
 
-%%%%files -n %{devname}
+%files -n %{devname}
 %{_includedir}/Wt
+%{_includedir}/thirdparty
 %{_libdir}/cmake/wt
 %{_libdir}/*.so
-EOF
 
 %files
 %{_datadir}/Wt
